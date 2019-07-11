@@ -95,12 +95,16 @@ function createCard(user) {
   const cardFollowers = document.createElement("p");
   const cardFollowing = document.createElement("p");
   const cardBio = document.createElement("p");
+  const cardGraph = document.createElement("div");
+  const graphImg = document.createElement("img");
 
   // set class names for styling
   card.classList.add("card");
   cardInfo.classList.add("card-info");
   cardName.classList.add("name");
   cardUser.classList.add("username");
+  cardGraph.classList.add("graph");
+  cardImg.classList.add("card-img");
 
   // set content
   cardImg.src = user.data.avatar_url;
@@ -113,10 +117,13 @@ function createCard(user) {
   cardFollowers.textContent = `Followers: ${user.data.followers}`;
   cardFollowing.textContent = `Following: ${user.data.following}`;
   cardBio.textContent = `Bio: ${user.data.bio}`;
+  graphImg.src = `http://ghchart.rshah.org/${user.data.login}`;
 
   // set structure
   card.appendChild(cardImg);
   card.appendChild(cardInfo);
+  card.appendChild(cardGraph);
+  cardGraph.appendChild(graphImg);
   cardInfo.appendChild(cardName);
   cardInfo.appendChild(cardUser);
   cardInfo.appendChild(cardLocation);
