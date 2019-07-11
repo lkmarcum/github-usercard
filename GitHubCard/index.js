@@ -109,6 +109,7 @@ function createCard(user) {
   cardLocation.textContent = `Location: ${user.data.location}`;
   cardProfile.textContent = `Profile: `;
   profileLink.href = user.data.html_url;
+  profileLink.textContent = user.data.html_url;
   cardFollowers.textContent = `Followers: ${user.data.followers}`;
   cardFollowing.textContent = `Following: ${user.data.following}`;
   cardBio.textContent = `Bio: ${user.data.bio}`;
