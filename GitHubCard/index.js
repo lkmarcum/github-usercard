@@ -67,6 +67,11 @@ function createCard(user) {
   const cardFollowers = document.createElement("p");
   const cardFollowing = document.createElement("p");
   const cardBio = document.createElement("p");
+
+  // set class names for styling
+  card.classList.add("card");
+  cardName.classList.add("name");
+  cardUser.classList.add(".username");
 }
 
 /* List of LS Instructors Github username's: 
