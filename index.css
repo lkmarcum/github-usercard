@@ -213,10 +213,14 @@ body {
   border-radius: 3px;
   float: right;
   margin: 10px 300px 0px 300px;
+  background: #bb1334;
+  color: white;
+  border: none;
 }
 
 .graph {
   width: 100%;
+  margin-top: 10px;
   display: none;
 }
 
