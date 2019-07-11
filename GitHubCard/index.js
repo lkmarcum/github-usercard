@@ -71,6 +71,7 @@ function createCard(user) {
 
   // set class names for styling
   card.classList.add("card");
+  cardInfo.classList.add("card-info");
   cardName.classList.add("name");
   cardUser.classList.add(".username");
 
@@ -84,6 +85,20 @@ function createCard(user) {
   cardFollowers.textContent = `Followers: ${user.followers}`;
   cardFollowing.textContent = `Following: ${user.following}`;
   cardBio.textContent = `Bio: ${user.bio}`;
+
+  // set structure
+  card.appendChild(cardImg);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(cardName);
+  cardInfo.appendChild(cardUser);
+  cardInfo.appendChild(cardLocation);
+  cardInfo.appendChild(cardProfile);
+  cardProfile.appendChild(profileLink);
+  cardInfo.appendChild(cardFollowers);
+  cardInfo.appendChild(cardFollowing);
+  cardInfo.appendChild(cardBio);
+
+  return card;
 }
 
 /* List of LS Instructors Github username's: 
