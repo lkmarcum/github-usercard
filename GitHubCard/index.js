@@ -3,13 +3,19 @@
            https://api.github.com/users/<your name>
 */
 
+const cards = document.querySelector(".cards");
+
 axios
   .get(`https://api.github.com/users/lkmarcum`)
   .then(data => {
     // action if successful
+    console.log("user object", data);
+    const user = createCard(data);
+    cards.appendChild(user);
   })
   .catch(error => {
     // action if error
+    console.log(error);
   });
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
@@ -33,7 +39,28 @@ axios
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+  "tetondan",
+  "dustinmyers",
+  "justsml",
+  "luishrd",
+  "bigknell"
+];
+
+followersArray.forEach(username => {
+  axios
+    .get(`https://api.github.com/users/${username}`)
+    .then(data => {
+      // action if successful
+      console.log("user object", data);
+      const user = createCard(data);
+      cards.appendChild(user);
+    })
+    .catch(error => {
+      // action if error
+      console.log(error);
+    });
+});
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -73,18 +100,18 @@ function createCard(user) {
   card.classList.add("card");
   cardInfo.classList.add("card-info");
   cardName.classList.add("name");
-  cardUser.classList.add(".username");
+  cardUser.classList.add("username");
 
   // set content
-  cardImg.src = user.avatar_url;
-  cardName.textContent = user.name;
-  cardUser.textContent = user.login;
-  cardLocation.textContent = `Location: ${user.location}`;
+  cardImg.src = user.data.avatar_url;
+  cardName.textContent = user.data.name;
+  cardUser.textContent = user.data.login;
+  cardLocation.textContent = `Location: ${user.data.location}`;
   cardProfile.textContent = `Profile: `;
-  profileLink.href = user.url;
-  cardFollowers.textContent = `Followers: ${user.followers}`;
-  cardFollowing.textContent = `Following: ${user.following}`;
-  cardBio.textContent = `Bio: ${user.bio}`;
+  profileLink.href = user.data.html_url;
+  cardFollowers.textContent = `Followers: ${user.data.followers}`;
+  cardFollowing.textContent = `Following: ${user.data.following}`;
+  cardBio.textContent = `Bio: ${user.data.bio}`;
 
   // set structure
   card.appendChild(cardImg);
