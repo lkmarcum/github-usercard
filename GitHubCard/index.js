@@ -59,6 +59,7 @@ function createCard(user) {
   // create elements
   const card = document.createElement("div");
   const cardImg = document.createElement("img");
+  const cardInfo = document.createElement("div");
   const cardName = document.createElement("h3");
   const cardUser = document.createElement("p");
   const cardLocation = document.createElement("p");
@@ -72,6 +73,17 @@ function createCard(user) {
   card.classList.add("card");
   cardName.classList.add("name");
   cardUser.classList.add(".username");
+
+  // set content
+  cardImg.src = user.avatar_url;
+  cardName.textContent = user.name;
+  cardUser.textContent = user.login;
+  cardLocation.textContent = `Location: ${user.location}`;
+  cardProfile.textContent = `Profile: `;
+  profileLink.href = user.url;
+  cardFollowers.textContent = `Followers: ${user.followers}`;
+  cardFollowing.textContent = `Following: ${user.following}`;
+  cardBio.textContent = `Bio: ${user.bio}`;
 }
 
 /* List of LS Instructors Github username's: 
