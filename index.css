@@ -198,7 +198,7 @@ body {
 .card p {
   font-size: 1.4rem;
   margin-bottom: 3px;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .card .username {
@@ -207,6 +207,19 @@ body {
   margin: 3px 0 10px;
 }
 
+.card button {
+  height: 20px;
+  width: 100%;
+  border-radius: 3px;
+  float: right;
+  margin: 10px 300px 0px 300px;
+}
+
 .graph {
   width: 100%;
+  display: none;
+}
+
+.graph-display {
+  display: block;
 }

@@ -97,6 +97,7 @@ function createCard(user) {
   const cardBio = document.createElement("p");
   const cardGraph = document.createElement("div");
   const graphImg = document.createElement("img");
+  const button = document.createElement("button");
 
   // set class names for styling
   card.classList.add("card");
@@ -118,11 +119,23 @@ function createCard(user) {
   cardFollowing.textContent = `Following: ${user.data.following}`;
   cardBio.textContent = `Bio: ${user.data.bio}`;
   graphImg.src = `http://ghchart.rshah.org/${user.data.login}`;
+  button.textContent = "Show Graph";
+
+  // event listener for button
+  button.addEventListener("click", event => {
+    cardGraph.classList.toggle("graph-display");
+    if (button.textContent === "Show Graph") {
+      button.textContent = "Hide Graph";
+    } else {
+      button.textContent = "Show Graph";
+    }
+  });
 
   // set structure
   card.appendChild(cardImg);
   card.appendChild(cardInfo);
   card.appendChild(cardGraph);
+  card.appendChild(button);
   cardGraph.appendChild(graphImg);
   cardInfo.appendChild(cardName);
   cardInfo.appendChild(cardUser);
